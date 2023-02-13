@@ -62,7 +62,7 @@ doTask();
 ==============
 
 Event loop, Callback Queue Example:
-
+```
 console.log("Hello");
 
 setTimeout(function one() {
@@ -83,9 +83,9 @@ Promise.resolve().then(function p2() {
 
 
 console.log("Bye");
-
+```
 ====
-
+```
 class TimerThread extends Thread {
     TimerThread(MacroTaskQueue queue, int delay, Function cb) {
             //
@@ -100,22 +100,23 @@ class TimerThread extends Thread {
 class MiroThreads extends Thread {
     .. reference to MicroTaskQueue
 }
-
+```
 Job of EventLoop Thread ==> Check if stack is empty; take functions for callback queue onto stack for exectuion
 First empty MicroTask queue and then MacroTask Queue
 
 ====
-
+```
 function doTask() {
     return new Promise( (resolve, reject) => {
         make api call then based on result
         resolve(response) or reject(error);
     })
 }
+```
 ===============
 
 Psuedocode for Event loop
-
+```
 const microTask = []; // promise, setImmediate
 const pendingTimers = [];  // setInterval , setTimeout
 const pendingOSTasks = []; // Listening to Port
@@ -132,3 +133,4 @@ while(shouldContinue() && isStackEmpty()) {
     // Pause execution and continue...
 }
 
+```
