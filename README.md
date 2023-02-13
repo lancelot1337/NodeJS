@@ -134,3 +134,25 @@ while(shouldContinue() && isStackEmpty()) {
 }
 
 ```
+
+Module System:
+
+1) Plain JS module system is done using IIFE
+
+(function() {...})();
+
+2) CommonJS
+
+NodeJS uses CommonJS module system by default;
+
+module.exports
+and
+require(..); to import a module
+
+3) ES 6 module
+export and import
+
+
+
+
+
