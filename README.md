@@ -153,7 +153,24 @@ require(..); to import a module
 export and import
 
 
+========
+use PM2 instead of Cluster
+https://pm2.keymetrics.io/
 
+npx pm2 start server.js -i 4
 
+npx pm2 list
+npx pm2 ls
+npx pm2 monit
+npx pm2 stop 2
+npx pm2 stop all
+npx pm2 restart 2
+npx pm2 restart all
+npx pm2 delete all
+npx pm2 delete 2
+
+Dash: https://app.pm2.io/#/r/bzbgv7pqya8agxp
+
+npx autocannon -c 100 http://localhost:1234/
 
 
