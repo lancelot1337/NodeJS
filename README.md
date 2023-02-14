@@ -173,4 +173,131 @@ Dash: https://app.pm2.io/#/r/bzbgv7pqya8agxp
 
 npx autocannon -c 100 http://localhost:1234/
 
+----------
+
+
+Recap:
+NodeJs ---> Platform with V8 and Libuv async library {Threads and Async operations}
+NodeJS comes with built-in modules ==> crypto, fs, http, worker-threads, cluster
+CommonJS module system is the default module system supported by NodeJS {module.exports and require()}
+
+EventLoop, Heap area, stack, Macro Task and Micro Task Callback queues, Garbage Collector 
+
+PM2 to manage clusters
+
+Day 2
+
+autocannon for loadtesting, wrk or "Apache Benchmark --> ab"
+
+Debug:
+node --inspect-brk server.js
+To place a breakpoint use;
+
+ debugger;
+
+ Chrome Web Browser:
+ chrome://inspect
+
+---
+
+Issues in nodeJs applcations ==> event loop, memory, cpu
+
+* clinic
+
+https://clinicjs.org/documentation/doctor/
+https://github.com/clinicjs/node-clinic
+https://github.com/clinicjs/node-clinic-doctor-examples
+
+
+Clinic.js Doctor
+On GitHub
+Example
+Diagnose performance issues in your Node.js applications
+Clinic.js Doctor
+
+
+Executable modules has to be installed globally:
+
+npm install -g autocannon clinic
+
+npm root -g
+
+npm list -g
+
+
+$ clinic doctor --autocannon [ -c 1000 http://localhost:1234] -- node slow-eventloop.js
+
+-------------------------------
+
+Node Project
+Package Managers:
+1) NPM --> Node Package Manager --> installed by default along with NodeJS
+2) YARN --> npm install -g yarn
+3) PNPM --> npm install -g pnpm
+
+Uses of Package Manager:
+1) 
+Global dependencies:
+npm i -g yarn
+these modules will be downloaded into "/usr/local/lib/node_modules" folder --> npm root -g
+
+Project specific dependencies:
+--> used to install 3rd party depdenencies for the project[ example: expressjs, react, angular, jquery]
+npm install react
+this install dependencies for the project ===> project/node_modules folder
+
+yarn add react
+
+2) 
+Package managers are used to exceute scripts:
+
+scripts: {
+    "start": "node dist/server.js",
+    "test": "..."
+}
+
+npm start
+npm test
+
+yarn start
+yarn test
+
+3) publish modules to repo
+npm publish
+
+npm config ls -l
+registry = "https://registry.npmjs.org/" 
+
+npm config set registry="http://cisco.com/webex"
+
+=========
+
+Node Project:
+npm init --y
+==> package.json
+is the place where the following are configured:
+1) scripts
+2) dependencies
+are modules required in "production" also
+3) devDependencies
+are modules required only in "development" mode
+--> examples: any testing modules / Linting ==> static code analysis / Compiler {tsc, coffeescript, dart, livescript}
+4) peerDependencies
+    are modules which should be installed by the user of this module
+
+When project ==> repo ==> code is commited without "node_modules"
+
+npm i lodash
+
+npm i -D mocha chai request
+
+
+This installs transitive dependencies
+Semantic versioninig : MAJOR.MINOR.PATCH
+
+"lodash": "4.17.21" ==> need exact version from repo
+
+"lodash": "^4.17.21" ==> min version number is 4.17.21; if latest version is available--> download
+
+"lodash": "~4.17.21" ==> need MAJOR version as "4"; minor and patch can be different
 
