@@ -9,7 +9,9 @@ function forEach(elems, action) {
 function filter(elems, predicate) {
     let result = [];
         forEach(elems, (elem) => {
-            result.push(elem);
+            if(predicate(elem)) {
+             result.push(elem);
+            }
         });
     return result;
 }
