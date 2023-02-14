@@ -301,3 +301,22 @@ Semantic versioninig : MAJOR.MINOR.PATCH
 
 "lodash": "~4.17.21" ==> need MAJOR version as "4"; minor and patch can be different
 
+======
+Team Member:
+npm install
+
+
+JS Unit testing libraries:
+* Jasmine
+* Mocha
+* Jest
+
+Jasmine and JEST has a very good assertion apis
+
+AAA ==> Assemble, Action and Assert
+
+Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+change:
+"test": "mocha --reporter spec"
+to
+"test": "jest"
