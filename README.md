@@ -319,4 +319,5 @@ Chai is a BDD / TDD assertion library for node and the browser that can be delig
 change:
 "test": "mocha --reporter spec"
 to
+npm i -D jest
 "test": "jest"
