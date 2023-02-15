@@ -693,3 +693,25 @@ type T = ReturnType<typeof add>;
 
 "T" will be number
 
+=====================
+R2DBC and not JDBC
+
+Where can I use NodeJS?
+
+1) build APIs ==> RESTful / GraphQL web services ==> Sending JSON / XML
+2) build traditional web applications where server sends rendered pages to client
+3) Streaming platform
+4) Real time applications ==> ChatGPT, webbot
+5) Client side applications ==> React/ Angular/ Vue
+ --> compile, testing, minifiy, uglify, bundle
+
+==================
+
+$tsproject> npm init --y
+$tsproject> npm i typescript
+$tsproject> tsc --init
+
+$tsproject> tsc
+
+Typescript uses ES6 module system =={ export and import instead}
+
