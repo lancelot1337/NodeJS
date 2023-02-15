@@ -1,5 +1,5 @@
 import Person  from "./Person";
-import {forEach, filter} from './lib'
+import {forEach, filter, memoize} from './lib'
 
 let p1:Person = new Person();
 console.log(p1); 
@@ -31,3 +31,18 @@ let mobiles:Product[] = filter(products, e => e.category === 'mobile');
 forEach(evens, console.log);
 forEach(mobiles, console.log);
 
+console.log("**********");
+
+function fibanocci(num: number):number {
+  return (num == 0 || num == 1) ? num : fibanocci(num - 1) + fibanocci(num -2);
+}
+
+let memFib = memoize(fibanocci);
+console.time("first");
+ console.log(memFib(34));
+console.timeEnd("first");
+
+
+console.time("second");
+ console.log(memFib(34));
+console.timeEnd("second");

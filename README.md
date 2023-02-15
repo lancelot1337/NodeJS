@@ -715,3 +715,33 @@ $tsproject> tsc
 
 Typescript uses ES6 module system =={ export and import instead}
 
+===
+HOF:
+* function accepting function as an argument
+* function return a function
+
+Closure ==> used along with HOF ==> returned function / inner function can access all the members of outer function
+
+Memoization
+CPU intense operations has to be memoized
+
+fibanocci(34) ==> execute funtion ==> store result in cache ==> return result
+
+fibanocci(34) ==> get from cache
+
+getProduct(3) ==> make api call to server ==> cache the result
+getProduct(2) ==> make api call to server ==> cache the result
+
+getProduct(3) ==> from cache
+
+=======
+
+Exercise ==> create a HOF map() in lib.ts
+https://rxmarbles.com/#map
+
+====
+
+Using JS in TS and Decorators and Webpack
+
+
+
