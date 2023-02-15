@@ -327,14 +327,195 @@ npm i -D jest
 Exercises:
 
 npm install -g javascripting
+
 npm install -g functional-javascript-workshop
+
 npm install -g learnyounode
 
 $functional-javascript-workshop
 
 
-Day 3
 
 Recap: 
 NodeJS project --> package.json ; NPM, YARN , PNPM
 JS Unit testing ==> Jasmine, JEST and Mocha, Chai.js assertion library
+
+Day 3:
+
+JS: loosely typed and dynamically typed language
+
+var data = "test"; // string
+data.toUpperCase();
+
+data = 34; // number
+
+data++;
+
+// what type are you passing and what is the return type
+function doTask(data) {
+
+}
+ES6/ ESNext ==> babel ==> JavaScript version understood by engine [ https://caniuse.com/]
+typescript ==> tsc ==> JavaScript {executed on the engine}
+coffeescript ==> csc ==> JavaScript
+LiveScript ==> lsc ==> javaScript
+Dart ==> dartc ==> javaScript
+
+TypeScript
+* Provide optional type system for JavaScript
+* catch errors at compile time rather than runtime
+* enhance code quality and understandibilty
+
+Basic types: string, number, boolean
+
+file.ts
+let name:string = "Roger"; 
+name = 23; // tsc picks this error and won't compile to "js" [ tsc file.ts ==> file.js]
+
+var age:number = 22;
+
+var employed:boolean = true;
+
+------
+
+Advance types:
+
+1) enum
+
+enum Direction {
+    NORTH = 'north',
+    EAST = 'east'
+}
+
+eum Prioirty {
+    LOW = 0,
+    MED = 1,
+    HIGH = 2
+}
+
+const direction:Direction = Direction.NORTH;
+
+2) type --> user defined types 
+
+type Person = {
+    name:string;
+    age:number
+}
+
+let p:Person = {name:"Larry", age:32};
+
+let r:Person = {name: "Peter"}; // error
+
+Optional:
+
+type Person = {
+    name:string;
+    age?:number
+}
+
+let p:Person = {name:"Larry", age:32};
+
+let r:Person = {name: "Peter"}; // valid
+
+Singleton
+
+let p:{"name":string, "age":number} = {name:"Larry", age:32};
+
+3) Array type
+
+type Person = {
+    name:string;
+    age?:number
+}
+
+let people:Person[] = [
+    {name:"Larry", age:32},
+    {name:"Smitha", age:30}
+]
+
+let data:number[] = [ 42,11,48,12];
+
+4) Union type
+
+let course:string|number  = "Typescript";
+
+course = 123; // valid
+
+5) interface 
+
+similar to "type" to define a shape of object
+
+interface Person {
+    name:string;
+    age?:number
+}
+
+5.1) we can specialize
+
+interface Product {
+    id:number;
+    name: string;
+    price: number
+}
+
+// specialization ==> inheritance
+interface Mobile extends Product {
+    connectivity:string;
+    camera:string;
+}
+
+interface Tv extends Product {
+    screen:string;
+}
+
+let sony:Tv = {id:12, name:"Sony Bravia", price:234000.00, screen : "OLED"};
+
+5.2) Realization relationship
+
+interface Renderer {
+    render(); 
+}
+// implements --> Realization
+class ReactDOM implements Renderer {
+    // state and behaviour
+    render() {
+        // logic
+    }
+}
+// VDOM -=> DOM
+ReactDOM.render(<App/>);
+
+// WebOS , SmartTV
+class ReactTv implements Renderer {
+    // state and behaviour
+    render() {
+        // logic
+    }
+}
+
+ReactTv.render(<App/>);
+
+====
+
+6) any
+
+let data:any = "Hello";
+
+let elem:string = data; // works fine
+
+data = 32;
+data = true;
+
+7) unknown
+
+let data:unknown = "Hello";
+let elem:string = data; // error --> unknown type can be assigned to unknown type only
+
+data = 32;
+data = true;
+
+Note: Before using "unknown" type ==> type checking has to be done
+---
+
+npm i -g typescript
+
