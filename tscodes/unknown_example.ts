@@ -7,3 +7,8 @@ function doTask2(arg:unknown) {
 }
 
 doTask2("Hello World!!!");
+
+/*
+
+
+*/

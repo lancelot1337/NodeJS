@@ -559,3 +559,137 @@ class Book {
 }
 
 ```
+
+Specialization:
+
+class Product {
+    constructor(private id:number, private name:string) {}
+    ///
+    getPrice(): number {
+        ...
+    }
+}
+
+class Mobile extends Product {
+     private connectivity:string;
+     constructor(id:number, name:string, connectivity:string) {
+        super(id, name); // chain to base class constructor
+        this.connectivity = connectivity;
+     }
+    // override
+     getPrice(): number {
+        return super.getPrice() + 1000;
+     }
+}
+
+======================
+
+Not-Null Assertion [ ! ]
+
+```
+Scenario 1:
+type ResponseData = string | null;
+
+function someTask(data:ResponseData) {
+    console.log(data.toUpperCase()); // error --> data can be null
+}
+
+Solution:
+function someTask(data:ResponseData) {
+    console.log(data!.toUpperCase()); // not null assertion
+}
+```
+========
+
+Keywords "as", "in", "is"
+
+Type Assertions ==> as
+
+```
+type ResponseData = string | null;
+
+function someTask(data:ResponseData) {
+    console.log((data as string).toUpperCase());
+}
+```
+<div class="card"></div>
+
+let div = document.getElementById('.card') as HTMLDivElement;
+div.(methods of HTML DivElement)
+
+
+-----
+
+Type Predicate functions with "is" keyword
+
+
+function printData(data: User | ErrorMsg):void {
+        console.log((data as User).name); 
+}
+
+===========================
+
+TypeScript Utilities:
+
+1) Partial
+interface User {
+    name: string;
+    email: string;
+    password:string;
+}
+makes all attributes as optional
+
+UI I need to update User
+let payload:Partial<User> = {"email": "a@gmail.com", "password": "secret"}; // valid
+
+2) Required
+interface User {
+    name?: string;
+    email?: string;
+    password?:string;
+}
+// makes all attributes as compulsory
+let user:Required<User> =  {"email": "a@gmail.com", "password": "secret"}; // error
+
+3) Omit
+
+type Person = Omit<User, "password" | "email">;
+
+Person contains name 
+
+4) Pick
+
+
+type Person = Pick<User, "name" | "email">;
+
+Person contains name and email
+
+5) ReadOnly
+
+let response:ReadOnly<User> = {"name": "A", "email": "a@gmail.com", "password": "secret"};
+
+response.email = ""; // error --> readonly
+
+Not same as:
+const data = {
+    "name": "A",
+    "age": 32
+}
+
+data.age = 99; // valid
+
+data = {}; // not valid
+
+6) ReturnType
+
+type T = ReturnType<() => string>;
+now "T" is a string
+
+function add(x:number, y:number) {
+    return x + y;
+}
+
+type T = ReturnType<typeof add>;
+
+"T" will be number
+
