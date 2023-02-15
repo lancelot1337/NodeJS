@@ -422,7 +422,7 @@ Singleton
 let p:{"name":string, "age":number} = {name:"Larry", age:32};
 
 3) Array type
-
+```
 type Person = {
     name:string;
     age?:number
@@ -434,7 +434,7 @@ let people:Person[] = [
 ]
 
 let data:number[] = [ 42,11,48,12];
-
+```
 4) Union type
 
 let course:string|number  = "Typescript";
@@ -444,14 +444,14 @@ course = 123; // valid
 5) interface 
 
 similar to "type" to define a shape of object
-
+```
 interface Person {
     name:string;
     age?:number
 }
-
+```
 5.1) we can specialize
-
+```
 interface Product {
     id:number;
     name: string;
@@ -469,9 +469,9 @@ interface Tv extends Product {
 }
 
 let sony:Tv = {id:12, name:"Sony Bravia", price:234000.00, screen : "OLED"};
-
+```
 5.2) Realization relationship
-
+```
 interface Renderer {
     render(); 
 }
@@ -494,7 +494,7 @@ class ReactTv implements Renderer {
 }
 
 ReactTv.render(<App/>);
-
+```
 ====
 
 6) any
