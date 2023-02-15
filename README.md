@@ -324,4 +324,17 @@ npm i -D jest
 
 ===
 
+Exercises:
+
+npm install -g javascripting
+npm install -g functional-javascript-workshop
+npm install -g learnyounode
+
+$functional-javascript-workshop
+
+
 Day 3
+
+Recap: 
+NodeJS project --> package.json ; NPM, YARN , PNPM
+JS Unit testing ==> Jasmine, JEST and Mocha, Chai.js assertion library
