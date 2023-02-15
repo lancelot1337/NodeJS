@@ -519,3 +519,43 @@ Note: Before using "unknown" type ==> type checking has to be done
 
 npm i -g typescript
 
+npm i -g ts-node
+
+ts-node file.ts
+
+8) function types
+
+let add:(x:number, y:number) => number;
+
+add = function(x:number, y:number): number {
+    return x + y;
+}
+OR
+function add(x:number, y: number):number {
+    return x + y;
+}
+
+9) class type
+
+```
+class Book {
+    private title:string; // state
+    private price:number;
+    constructor(title, price) {
+        this.title = title;
+        this.price = price;
+    }
+
+    public getTitle(): string {
+        return this.title;
+    }
+
+    getPrice(): number {
+        return this.price;
+    }
+    setPrice(p:number): void {
+        this.price = p;
+    }
+}
+
+```

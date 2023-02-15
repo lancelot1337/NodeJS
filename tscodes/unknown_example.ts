@@ -6,4 +6,4 @@ function doTask2(arg:unknown) {
     }
 }
 
-doTask("Hello World!!!");
+doTask2("Hello World!!!");
