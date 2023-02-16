@@ -744,4 +744,28 @@ https://rxmarbles.com/#map
 Using JS in TS and Decorators and Webpack
 
 
+Docker Desktop
+
+Windows:
+docker run --name mongodb -d mongo:latest -p 27017:27017
+ 
+for Mac:
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+
+Docker Client:
+
+docker exec -it mongodb bash
+ 
+root@67c94a75e6f7:/# mongosh
+
+test> show databases;
+
+docker cp sales.json mongodb:/tmp/sales.json
+docker exec -it mongodb bash
+root@67c94a75e6f7:/# mongoimport --db adobe_express --collection sales --drop --file tmp/sales.json
+
+==========
+
+Day 4
+
 
