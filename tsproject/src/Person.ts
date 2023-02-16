@@ -1,3 +1,8 @@
+import { Nationality } from "./Nationality";
+
+@Nationality({
+    name:"Germany"
+})
 export default class Person {
     constructor(private name:string = "NoName", private age:number = 18){}
 

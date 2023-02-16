@@ -975,5 +975,40 @@ addCustomer(name:string, age:number, @ValidEmail() email:string) {
 
 -----------------
 
-Resume @ 11:25
+Example:
+
+```
+export function Nationality(constructor:Function) {
+    Object.defineProperty(constructor.prototype, "country", {"value": "Indian"})
+}
+
+@Nationality
+export default class Person {
+    constructor(private name:string = "NoName", private age:number = 18){}
+
+index.ts
+let p1:Person = new Person();
+//@ts-ignore
+console.log(p1.getName(), p1.getAge(), p1["country"]); 
+
+```
+
+Decorator Factory
+
+```
+// decorator Factory
+export function Nationality(config:any) {
+    return function(constructor:Function) {
+        Object.defineProperty(constructor.prototype, "country", {"value": config.name})
+    }
+}
+
+@Nationality({
+    name:"Germany"
+})
+export default class Person {
+    constructor(private name:string = "NoName", private age:number = 18){}
+
+```
+
 
