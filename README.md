@@ -847,5 +847,81 @@ npm i -D @types/react
 npm i -D @types/node
 
 
+---
+
+Generate type system for JavaScript files:
+tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types
+
+================
+
+Decorators [ @DecoratorName ]
+--> Metadata for class / property / methods / parameters
+
+Angular built-in decorators
+
+@Component({
+    selector:'app-customer',
+    template-url:'customer.html',
+    styled-url:'styles.css'
+})
+class CustomerComponent {
+    // state and behaviour
+    firstName: string;
+    lastName:string;
+    @Min(18)
+    age: number;
+
+    updateName(n: string) {
+        this.lastName = n;
+    }
+
+    @Memo
+    getCustomer() {
+        fetch('http://server/customers');..
+    }
+}
+
+CustomerComponent --> selector, template-url, styled-url are injected properties
+
+<app-customer>
+</app-customer>
+
+
+@Component({
+    selector:'product',
+    template:`<div> {{title}} {{price}} </div>`
+})
+class ProductComponent {
+    title:string = "iPhone";
+    price:number = 120000.00
+
+    @Memo
+    fibanocci(num) {
+
+    }
+}
+
+<product></product>
+
+Compare with Specialization approach:
+
+class Component {
+    selector;
+    template;
+    template-url;
+    styled-url;
+    style;
+    declarations;
+    ...
+}
+
+class CustomerComponent extends Component {
+
+}
+
+class ProductComponent extends Component {
+
+}
+
 
 
