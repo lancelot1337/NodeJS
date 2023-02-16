@@ -924,4 +924,56 @@ class ProductComponent extends Component {
 }
 
 
+=====
+
+Decorators are special functions with specific arguments:
+
+1) class Decorator
+function classDecorator(constructor:Function) {}
+
+2) Property Decorator
+
+function propertyDecorator(target:any, propertyKey:string) {
+    target[propertyKey] ==> price or age
+
+}
+
+let p:Product = new Product("iPhone",200000.00);
+
+class Product {
+    @Min(0)
+    price:number;
+}
+
+class Customer {
+    @Min(18)
+    age:number;
+}
+
+let c:Customer = new Customer("a", 34);
+
+3) Method Decorator
+
+function methodDecorator(target:any, methodName:string, descriptor?:PropertyDescriptor) {
+
+}
+
+ @Memo
+fibanocci(num) {
+    // logic
+}
+
+4) Parameter Decorator
+
+function parameterDecorator(target:any, methodName:string, parameterIndex:number) {
+
+}
+
+addCustomer(name:string, age:number, @ValidEmail() email:string) {
+
+}
+
+-----------------
+
+Resume @ 11:25
 
