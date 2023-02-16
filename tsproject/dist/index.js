@@ -8,9 +8,17 @@ const lodash_1 = require("lodash");
 // declare var jquery:any;
 // jquery.on("click", "", () => {});
 console.log((0, lodash_1.random)(1, 100));
-let p1 = new Person_1.default();
+// let p2:Person = new Person();
+let p1 = new Person_1.default("Sam", 14);
 //@ts-ignore
-console.log(p1.getName(), p1.getAge(), p1["country"]);
+if (p1["error"]) {
+    //@ts-ignore 
+    console.log(p1["error"]);
+}
+else {
+    //@ts-ignore
+    console.log(p1.getName(), p1.getAge(), p1["country"]);
+}
 // let p2:Person = new Person("Smith");
 // console.log(p2);
 // let p3:Person = new Person("Tim", 21);

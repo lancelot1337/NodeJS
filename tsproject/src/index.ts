@@ -7,11 +7,17 @@ import {random} from 'lodash';
 // jquery.on("click", "", () => {});
 
 console.log(random(1, 100));
+// let p2:Person = new Person();
+let p1:Person = new Person("Sam", 14);
 
-let p1:Person = new Person();
+//@ts-ignore
+if(p1["error"]) {
+ //@ts-ignore 
+  console.log(p1["error"]);
+} else {
 //@ts-ignore
 console.log(p1.getName(), p1.getAge(), p1["country"]); 
-
+}
 // let p2:Person = new Person("Smith");
 // console.log(p2);
 

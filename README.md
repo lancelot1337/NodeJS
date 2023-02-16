@@ -1012,3 +1012,10 @@ export default class Person {
 ```
 
 
+let p:Person = ...
+
+p.age = 2; // calls setter
+
+x = p.age; // calls getter
+
+p["error"]

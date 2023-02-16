@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const Min_1 = require("./Min");
 const Nationality_1 = require("./Nationality");
 let Person = class Person {
     constructor(name = "NoName", age = 18) {
@@ -18,7 +19,15 @@ let Person = class Person {
     getAge() {
         return this.age;
     }
+    set fullName(name) {
+    }
+    get details() {
+        return "name " + this.name + ", age = " + this.age;
+    }
 };
+__decorate([
+    (0, Min_1.Min)(18)
+], Person.prototype, "age", void 0);
 Person = __decorate([
     (0, Nationality_1.Nationality)({
         name: "Germany"
