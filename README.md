@@ -768,4 +768,84 @@ root@67c94a75e6f7:/# mongoimport --db adobe_express --collection sales --drop --
 
 Day 4
 
+Closure ==> Mechansim wherein inner function can access the members of outer function
+
+function adder(base) {
+    return function(arg) {
+        return base + arg;
+    }
+}
+
+
+let fiveAdder = adder(5); // here fiveAdder points to returned function(arg) + base[5] is stored in heap as closure
+
+let tenAdder = adder(10); // here tenAdder points to returned function(arg) + base[10] is stored in heap as closure
+
+console.log(fiveAdder(2)); // 7 here we are invoking inner function
+
+console.log(fiveAdder(4)); // 9 here we are invoking inner function
+
+console.log(tenAdder(2)); //12 here we are invoking inner function
+
+Recap:
+
+npm i -g typescript
+
+TypeScript types
+string, number, boolean, enum, type, interface, class, union
+
+as, in, is, any vs unknown
+
+ES 6 module system {export and import instead of CommonJS --> module.exports and require}
+
+Generics <T> and HOF
+
+function print<T>(data:T[]) {}
+
+Narrow type:
+1)
+function print<T extends Product>(data:T[]) {
+
+}
+
+interface Product{...}
+interface Mobile extends Product{...}
+interface Tv extends Product{..};
+
+Also
+2)
+function print<T extends {"name":string}>(data:T[]) {
+
+}
+
+tsconfig.json ==> compiler settings
+
+==================
+
+Day 4
+
+JavaScript in TypeScript
+
+Most of the current available librarires are in JS: react, jquery, lodash, express, nodejs
+
+npm i lodash
+
+<script src=".../jquery"></script>
+
+Type declarations are done in file [fileName.d.ts]
+
+typings.d.ts ==> Global type declaration for JS
+
+Using DefinitelyTyped
+The repository for high quality TypeScript type definitions.
+
+npm i lodash @types/lodash
+
+npm i react 
+npm i -D @types/react
+
+npm i -D @types/node
+
+
+
 

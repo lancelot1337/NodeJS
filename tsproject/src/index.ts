@@ -1,6 +1,13 @@
 import Person  from "./Person";
 import {forEach, filter, memoize} from './lib'
 
+import {random} from 'lodash';
+
+declare var jquery:any;
+jquery.on("click", "", () => {});
+
+console.log(random(1, 100));
+
 let p1:Person = new Person();
 console.log(p1); 
 let p2:Person = new Person("Smith");

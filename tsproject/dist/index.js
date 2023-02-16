@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Person_1 = __importDefault(require("./Person"));
 const lib_1 = require("./lib");
+const lodash_1 = require("lodash");
+jquery.on("click", "", () => { });
+console.log((0, lodash_1.random)(1, 100));
 let p1 = new Person_1.default();
 console.log(p1);
 let p2 = new Person_1.default("Smith");
