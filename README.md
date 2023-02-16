@@ -1016,6 +1016,12 @@ let p:Person = ...
 
 p.age = 2; // calls setter
 
+p.age = 45; // calls setter
+
+
+
 x = p.age; // calls getter
+
+console.log(p.age); // calls getter
 
 p["error"]

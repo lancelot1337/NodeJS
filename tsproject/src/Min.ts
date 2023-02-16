@@ -2,7 +2,6 @@
 export function Min(limit: number) {
     // called once when decorator is applied
     return function (target: any, propertyKey: string) {
-    
        let x: number;
        const setter = function(newVal:number) {
         if(newVal < limit) {
@@ -15,7 +14,7 @@ export function Min(limit: number) {
        }
 
        const getter = function () {
-        return x;
+        return ;
        }
 
        Object.defineProperty(target, propertyKey, {

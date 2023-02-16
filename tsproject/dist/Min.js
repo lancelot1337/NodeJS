@@ -17,7 +17,7 @@ function Min(limit) {
             }
         };
         const getter = function () {
-            return x;
+            return;
         };
         Object.defineProperty(target, propertyKey, {
             set: setter,
