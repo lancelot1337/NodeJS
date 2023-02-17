@@ -1035,10 +1035,48 @@ test> show databases;
 
 $ docker cp sales.json mongodb:/tmp/sales.json
 $ docker cp employees.json mongodb:/tmp/employees.json
+
 $ docker exec -it mongodb bash
 
 root@67c94a75e6f7:/# mongoimport --db adobe_express --collection sales --drop --file tmp/sales.json
 
 
 root@67c94a75e6f7:/# mongoimport --db adobe_express --collection employees --drop --file tmp/employees.json
+
+========
+
+Day 5:
+
+$ mongosh
+test> show databases;
+test> use adobe_express;
+test> db.employees.find() // select * from employees
+test> db.employees.find({"company":"Adobe"}) // select * from employees where company = "Adobe"
+test> db.employees.find({"company":"Adobe"} , {"username": 1, company:1}) // select username, company from employees where company = "Adobe"
+test> db.employees.find({"company":"Adobe"} , {"username": 0})// all fields except username
+
+test> db.employees.insert({...})
+test> db.employees.insertMany([ {}, {}, {}])
+
+
+=========
+
+NodeJS ==> MongoDB driver ==> MongoDB
+
+NodeJS ==> Mongoose ODM ==> MongoDB
+
+ORM ==> Object Relational Mapping
+ODM ==> Object Data Mapping
+
+npm i mongoose
+
+Mongoose:
+Everything in Mongoose starts with a Schema
+https://mongoosejs.com/docs/schematypes.html
+
+Models are fancy constructors compiled from Schema definitions.
+const Tank = mongoose.model('Tank', schema);
+The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, lowercased version of your model name. Thus, for the example above, the model Tank is for the tanks collection in the database.
+
+All CRUD operations are done using Model
 
