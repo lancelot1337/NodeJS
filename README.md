@@ -1033,8 +1033,12 @@ test> show databases;
 ======
 
 
-docker cp sales.json mongodb:/tmp/sales.json
-docker exec -it mongodb bash
+$ docker cp sales.json mongodb:/tmp/sales.json
+$ docker cp employees.json mongodb:/tmp/employees.json
+$ docker exec -it mongodb bash
 
 root@67c94a75e6f7:/# mongoimport --db adobe_express --collection sales --drop --file tmp/sales.json
+
+
+root@67c94a75e6f7:/# mongoimport --db adobe_express --collection employees --drop --file tmp/employees.json
 
