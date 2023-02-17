@@ -1103,4 +1103,11 @@ Spring Boot / Razor / Flask --> ExpressJS
 expressapp> npm init --y
 
 expressapp> npm i express body-parser cookie-parser cors bcrypt jsonwebtoken
+
 expressapp> npm i -D typescript @types/node @types/express @types/body-parser @types/cookie-parser @types/cors ts-node
+
+expressapp> tsc --init
+
+
+
+
