@@ -1080,3 +1080,27 @@ The first argument is the singular name of the collection your model is for. Mon
 
 All CRUD operations are done using Model
 
+$ npx ts-node src/mongo_user.ts
+
+============================
+
+ExpressJS --> on top of "http" module
+
+Express is a minimal and flexible Node.js web application framework.
+--> build RESTful WS
+--> build tradional Web applications
+--> GraphQL { Express + Apollo}
+
+Spring Boot / Razor / Flask --> ExpressJS
+
+* Middleware
+* Routes
+* Controllers
+* Services
+
+=====
+
+expressapp> npm init --y
+
+expressapp> npm i express body-parser cookie-parser cors bcrypt jsonwebtoken
+expressapp> npm i -D typescript @types/node @types/express @types/body-parser @types/cookie-parser @types/cors ts-node
