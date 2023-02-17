@@ -1124,4 +1124,12 @@ Body --> Raw
     "category": "some"
 }
 
+===
+
+Express and Mongoose
+
+npm i mongoose
+npm i -D @types/mongoose
+
+
 
