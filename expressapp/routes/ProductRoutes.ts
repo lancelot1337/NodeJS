@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import ProductController from "../controllers/ProductController";
-
+import ProductMiddleware from '../controllers/ProductMiddleware';
 export class ProductRoutes {
     constructor(private app:express.Application) {} // comes from app.ts
 
@@ -8,7 +8,7 @@ export class ProductRoutes {
         // http://localhost:1234/products GET and POST
         this.app.route('/products')
         .get(ProductController.listProducts)
-        .post(ProductController.createProduct);
+        .post(ProductMiddleware.validateRequestProductBodyFields ,ProductController.createProduct);
         
         // GET http://localhost:1234/products/3 ==> Handling Path Parameter [ :id is called as path parameter name]
         // DELETE http://localhost:1234/products/3

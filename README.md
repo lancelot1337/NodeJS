@@ -1108,6 +1108,20 @@ expressapp> npm i -D typescript @types/node @types/express @types/body-parser @t
 
 expressapp> tsc --init
 
+POSTMAN
 
+POST: http://localhost:1234/products
+Headers:
+Accept: application/json
+Content-type:application/json
+
+Body --> Raw
+
+{
+    "id": 9,
+    "name": "test",
+    "price": 4343,
+    "category": "some"
+}
 
 
