@@ -16,7 +16,7 @@ const server:Server = createServer(app);
 // middleware
 app.use(express.json());
  // JSON.parse() and JSON.stringify()
- app.use('/static', express.static('public'))
+ app.use('/', express.static('public'))
  app.set('views', './views') // specify the views directory
  app.set('view engine', 'ejs');
 

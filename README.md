@@ -1261,3 +1261,133 @@ npm i -D @types/ejs
 Serve static pages:
 
 http://localhost:1234/index.html ==> public folder
+
+
+======================
+
+% npm --version
+9.1.3
+
+npm 7+ version features:
+
+1) peerDependencies
+
+projectA
+    package.json
+    dependencies: {
+        projectB: "1.0.0",
+    }
+
+projectB
+    package.json
+    peerDependencies: {
+        "react":"18.2.0"
+    }
+
+This enforces projectA to include "react" in dependencies
+
+projectA changes to
+    package.json
+    dependencies: {
+        projectB: "1.0.0",
+         "react":"18.2.0"
+    }
+
+2) Overrides
+
+Enforce spscific versions of a dependency, resolve conflict
+
+projectA
+package.json
+"dependencies" : {
+    "react": "18.0.0",
+    "react-select": "5.1.0"
+}
+
+react-select has peer-dendencies of "react@17.0.0" and "react-dom@17.0.0"
+
+throws version issues
+
+Solution:
+projectA
+package.json
+
+"overrides" {
+    "react-select": {
+        "react": "$react",
+        "react-dom":"$react-dom"
+    }
+}
+
+==========
+
+NPM Links
+
+===
+
+npm workspaces ==> moving towards Monorepo instead of multirepo
+==> Not so popular in NPM communitity
+
+MonoRepo and Multirepo
+
+monorepo benifits:
+* single build, test, lint configuration
+
+npm config set http-proxy ...
+npm config set https-proxy ...
+
+
+workspaces> npm init --y
+workspaces> npm init --workspace common --workspace service
+
+MonoRepo ==> Lerna, Nx, Rush, ..
+
+Rush: a scalable monorepo manager for the web ... Get Started! Rush makes life easier for JavaScript developers who build and publish many packages from a common ...
+
+npm install -g @microsoft/rush
+npm i -g pnpm
+
+NPM doppelgangers phantom dependencies
+
+https://rushjs.io/pages/advanced/npm_doppelgangers/
+
+monorepo>rush init
+
+monorepo/lib>pnpm init
+
+lib --> package.json "name": "@shared/lib",
+
+installing packages using "rush"
+
+lib> rush add -p lodash
+
+similar to npm start
+lib> rushx start
+
+service> pnpm init
+package.json
+{
+  "name": "@shared/service",
+
+in rush.json
+"projects": [
+    {
+      "packageName": "@shared/lib",
+      "projectFolder": "lib"
+    },
+    {
+      "packageName": "@shared/service",
+      "projectFolder": "service"
+    }
+
+
+service> rush add -p express // fails without adding the details in "rush.json"
+service --> package.json
+"dependencies": {
+    "express": "~4.18.2",
+    "@shared/lib":"workspace:*"
+  }
+ "start": "node ./index.js",
+
+ service> rush update
+ service>rushx start
