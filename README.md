@@ -1234,3 +1234,30 @@ Content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGV0ZXJAYWRvYmUuY29tIiwiaWF0IjoxNjc2ODcwMjkwLCJleHAiOjE2Nzg1NTIzNDQ4NTYsImlzcyI6IkFkb2JlIn0.p1tsP_iWYXswPnoR94RBkA_64tq_yYxbdHCrYTg4e8w
 
 
+==
+
+Angular Client or React client  or Swift Client or Xamarin client or desktop client
+
+they should store token ==> different ways
+
+client uses HttpInterceptors ==> automate sending headers
+
+====
+CSR ==> server sends JSON/ XML represetnatioin -=> Client apps has to convert into presentation
+
+Express for SSR ==> data is converted into document [ HTML / PDF ] and sent to client
+
+Templates for Express View Generation:
+1) EJS
+2) JADE
+3) PUG
+4) Handlebars
+5) Mustache
+6) jquery template
+
+npm i ejs
+npm i -D @types/ejs
+
+Serve static pages:
+
+http://localhost:1234/index.html ==> public folder

@@ -1,0 +1,11 @@
+<%= title %>
+
+<ul>
+<%
+    products.forEach(p => {
+%>
+        <li> <%= p.name %> <%= p.price %></li>
+<%
+    })
+%>
+</ul>
