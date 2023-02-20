@@ -1131,5 +1131,52 @@ Express and Mongoose
 npm i mongoose
 npm i -D @types/mongoose
 
+============================================
+CAP Theorem ==> Apply to decide DB
+Avoid using RDBMS in NodeJS because most of the operations in RDBMS are Sync in nature and nodejs driver support is less.
 
+MongoDB as NoSQL database for persistence
 
+mongodb is a driver for NodeJS to perform CRUD operations on Mongodb,
+Mongoose is a ODB  {Object Data Mapping} on top of Mongodb driver to perform CRUD operations using OO way
+Mongoose has:
+* Schema --> define fields of collections, validation rules ...
+* Model --> allows mapping of schema to Collection, use Model we perform CRUD operation
+
+ExpressJS --> Middleware web application framepwork for NodeJS to built 
+* RESTful --> CSR
+* GraphQL with extra GraphQL engine {like apollo} --> CSR
+* Build traditional web applications { like PHP , Servlet with JSP, ASP.NET} where server sendes renderd pages --> SSR
+
+app.ts --> Middleware {express.json()} --> Routes --> Middleware {ProductValidation} --> Controller --> Service --> where Mongoose is used to perform CRUD
+
+------------------
+
+Day 6
+
+JWT Token:
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+Header:
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+PAYLOAD:
+{
+  "sub": "banu@gmail.com",
+  "name": "Banu Prakash",
+  "iat": 1516239022,
+  "exp": 16000000,
+  "iss": "adobe",
+  "roles": ["admin", "guest"]
+}
+
+SIGNATURE:
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  myTopSecretSaltValue
+)

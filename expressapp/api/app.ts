@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import { Server, createServer } from 'http';
 import { EmployeeRoutes } from '../routes/EmployeeRoutes';
 import { ProductRoutes } from '../routes/ProductRoutes';
+import { UserRoutes } from '../routes/UserRoutes';
+import { tokenGuard } from '../services/token.guard';
 
 
 mongoose.connect("mongodb://localhost:27017/adobe_express");
@@ -21,6 +23,11 @@ app.get("/", (request:Request, respose:Response) => {
     respose.status(200).send("Server running at http://localhost:1234")
 });
 
+new UserRoutes(app).configureRoutes();
+
+app.use(tokenGuard);
+
+// security ==> only valid users can access below routes
 new ProductRoutes(app).configureRoutes();
 new EmployeeRoutes(app).configureRoutes();
 

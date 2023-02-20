@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 const { connection } = mongoose;
 mongoose.connect('mongodb://localhost:27017/mydb');
-
+/*
+ this example uses validation while inserting records.
+ "title" is required and should be 4 - 200 characters
+ "price" is required only if "onSale" is set to true
+ "date" if not specified is taken as system date
+*/
 const gameSchema = new mongoose.Schema({
+    
     title: {
         type: String,
         required: true,

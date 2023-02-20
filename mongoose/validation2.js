@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema}  = require('mongoose');
 
+// here number validations are done
+// if "bacon" is not provided we need a message 'Why no bacon?'
 var breakfastSchema = new Schema({
     eggs: {
       type: Number,

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema}  = require('mongoose');
 
+// using regular expression for validation
 var userSchema = new Schema({
     phone: {
       type: String,
