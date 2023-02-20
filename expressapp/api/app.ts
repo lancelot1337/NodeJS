@@ -14,7 +14,8 @@ const app:express.Application = express();
 const server:Server = createServer(app);
 
 // middleware
-app.use(express.json()); // JSON.parse() and JSON.stringify()
+app.use(express.json());
+ // JSON.parse() and JSON.stringify()
 
 // route
 // GET
@@ -23,9 +24,10 @@ app.get("/", (request:Request, respose:Response) => {
     respose.status(200).send("Server running at http://localhost:1234")
 });
 
+
 new UserRoutes(app).configureRoutes();
 
-app.use(tokenGuard);
+app.use(tokenGuard); // middleware 
 
 // security ==> only valid users can access below routes
 new ProductRoutes(app).configureRoutes();

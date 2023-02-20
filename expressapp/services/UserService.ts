@@ -6,24 +6,23 @@ class UserService {
     private readonly __saltRound = 12;
     private readonly __jwtSecret = "topsecret123";
 
-    users:Partial<User>[] = [];
-
     register(user:Partial<User>) {
-        bcrypt.hash((user as User).password!, this.__saltRound).then(hash => {
+        bcrypt.hash((user as User).password!, this.__saltRound).then(async hash => {
             user.password = hash;
-            UserModel.create(user, (err, resp) => {
-                return resp;
-            });
+            await UserModel.create(user);
         })
     }
 
     async login(user:Partial<User>) {
-        let u = await UserModel.findOne({email:user.email, password:user.password});
-        if(u !== null) {
+      
+        let u = await UserModel.findOne({email:user.email});
+        if(u !== null &&  bcrypt.compareSync((user as User).password!, u.password)) {
+            console.log("Valid" , u)
             return {
-                token: jwt.sign({user:u.email}, this.__jwtSecret)
+                token: jwt.sign({user:u.email}, this.__jwtSecret, {issuer:"Adobe", "expiresIn": Date.now() + 60*60*60*24})
             }
         }
+       
     }
     
     verifyToken(token:string) {

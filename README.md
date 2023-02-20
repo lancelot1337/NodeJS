@@ -1180,3 +1180,57 @@ HMACSHA256(
   base64UrlEncode(payload),
   myTopSecretSaltValue
 )
+
+npm i jsonwebtoken
+npm i -D @types/jsonwebtoken
+
+npm i bcrypt
+npm i -D @types/bcrypt
+
+POSTMAN
+
+POST: http://localhost:1234/register
+Headers:
+Accept: application/json
+Content-type: application/json
+
+BODY -> Raw
+{
+    "email":"peter@adobe.com",
+    "password":"Secret123"
+}
+
+docker exec -it mongodb bash
+# mongosh
+test> use adobe_express
+switched to db adobe_express
+adobe_express> db.users.find()
+
+---
+
+Login
+
+POST http://localhost:1234/login
+Headers:
+Accept: application/json
+Content-type: application/json
+
+BODY -> Raw
+{
+    "email":"peter@adobe.com",
+    "password":"Secret123"
+}
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGV0ZXJAYWRvYmUuY29tIiwiaWF0IjoxNjc2ODcwMjkwLCJleHAiOjE2Nzg1NTIzNDQ4NTYsImlzcyI6IkFkb2JlIn0.p1tsP_iWYXswPnoR94RBkA_64tq_yYxbdHCrYTg4e8w"
+}
+
+===
+
+GET http://localhost:1234/products
+Headers:
+Accept: application/json
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGV0ZXJAYWRvYmUuY29tIiwiaWF0IjoxNjc2ODcwMjkwLCJleHAiOjE2Nzg1NTIzNDQ4NTYsImlzcyI6IkFkb2JlIn0.p1tsP_iWYXswPnoR94RBkA_64tq_yYxbdHCrYTg4e8w
+
+

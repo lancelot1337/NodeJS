@@ -11,6 +11,6 @@ const userSchema: Schema = new Schema({
     password:String
 });
 
-const UserModel:Model<Partial<User>> = model("user", userSchema);
+const UserModel = model("user", userSchema); // Maps to "users" collection
 
 export default UserModel;

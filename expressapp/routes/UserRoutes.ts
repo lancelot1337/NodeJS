@@ -8,6 +8,7 @@ export class UserRoutes {
         this.app.route("/register")
         .post(UserController.register);
 
+        // http:localhost:1234/login
         this.app.route("/login")
         .post(UserController.login);
         return this.app;
